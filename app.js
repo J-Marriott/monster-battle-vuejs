@@ -40,15 +40,19 @@ new Vue({
 
     },
     giveUp: function() {
+      this.gameIsRunning = false;
 
     },
+
     monsterAttacks: function (){
       this.playerHealth -= this.calculateDamage(5, 12);
       this.checkWin();
     },
+
     calculateDamage: function(min, max) {
       return Math.max(Math.floor(Math.random() * max) + 1, min);
     },
+    
     checkWin: function() {
       if (this.monsterHealth <= 0) {
         if (confirm('You won! New Game?')) {
